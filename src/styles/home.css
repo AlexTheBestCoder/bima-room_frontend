@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
+/* .home-container {
+    width: 100vw;
+}
+
+.slide-container {
+    margin-bottom: 1vh;
+} */
+
+.slide-1,
+.slide-2,
+.slide-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: left;
+    overflow: hidden;
+    height: 85vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide-1 p,
+.slide-2 p,
+.slide-3 p {
+    /* top: 22vh;
+    position: relative;
+    left: 40vh; */
+    font-size: 45px;
+    font-weight: 900;
+    
+    color: white;
+    text-transform: uppercase;
+}
+
+.slide-1 a,
+.slide-2 a,
+.slide-3 a {
+    /* position: relative; */
+    font-size: 14px;
+    padding: 2vh;
+    width: auto;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #d39932;
+    /* top: 28vh;
+    left: 40vh; */
+}
+
+
+
+.slide-2 {
+    background-image: url('../assets/slide-bg-2.jpg');
+}
+
+.slide-3 {
+    background-image: url('../assets/slide-bg-3.jpg');
+}
+
+.guaranteed-effect {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-size: cover;
+    background-image: url('../assets/cils-bg.webp');
+    height: 58.8vh;
+    /* border: 1px solid black; */
+}
+
+.box-content {
+    background-color: #31353df1;
+    height: 40vh;
+    width: 90vw;
+}
+
+.best-products {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.best-products p {
+    font-size: 4vh;
+    letter-spacing: 0.5vw;
+}
+
+.best-products p h6 {
+    font-size: 23px;
+    text-align: center;
+    color: #d39932;
+}
+
+.best-products a {
+    padding: 2vh;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #d39932;
+}
+
+.best-products .product-list {
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+}
+
+.best-products .product-list img {
+    height: 60vh;
+}
+
+.best-products .product-list .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.best-products .product-list .product h4 {
+    text-align: center;
+}
+
+.best-products .product-list .product p {
+    color: #b56020;
+    margin-top: 1vh;
+    font-size: 2.5vh;
+    letter-spacing: normal;
+}
+
+.press-on-nails {
+    height: 100vh;
+    background-image: url('../assets/b3d2a5f91121434bb73a96041b57b6d9.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.press-on-nails .box-content {
+    display: flex;
+    text-align: center;
+    color: #d39932;
+    position: relative;
+    background-color: white;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    width: 50vh;
+}
+.press-on-nails .box-content p {
+    font-size: 2.5vh;
+}
+.press-on-nails .box-content a {
+    text-transform: uppercase;
+    font-size: 2.5vh;
+    color: white;
+    text-decoration: none;
+    padding: 2vh;
+    background-color: #d39932;
+}
+
+.lips-booster-creme {
+    height: 100vh;
+    background-image: url('../assets/levre-bg.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lips-booster-creme .box-content {
+    display: flex;
+    text-align: center;
+    color: #d39932;
+    background-color: white;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    width: 50vh;
+}
+.lips-booster-creme .box-content p {
+    font-size: 2.5vh;
+}
+
+.lips-booster-creme .box-content a {
+    text-transform: uppercase;
+    font-size: 2.5vh;
+    color: white;
+    text-decoration: none;
+    padding: 2vh;
+
+    background-color: #d39932;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 45vh;
+    background-color: white;
+}
+
+.address-container {
+    color: #b56020;
+    display: flex;
+}
+
+.address-container .box-container {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    height: max-content;
+}
+
+.social-media-icons {
+    display: flex;
+    width: 10rem;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1100px) {
+    .press-on-nails {
+        background-size: contain;
+    }
+    .lips-booster-creme {
+        background-size: contain;
+    }
+    .best-products .product-list img {
+        height: 50vh;
+    }
+
+    .slide-1 p,
+    .slide-2 p, 
+    .slide-3 p {
+        
+        color: white;
+        text-transform: uppercase;
+    }
+    .slide-1 a,
+    .slide-2 a,
+    .slide-3 a {
+        
+
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .best-products .product-list img {
+        height: 40vh;
+    }
+    .slide-3 {
+        background-position: center;
+    }
+
+    .slide-1 p,
+    .slide-2 p,
+    .slide-3 p {
+        
+        font-size: 32px;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .slide-1 a,
+    .slide-2 a,
+    .slide-3 a {
+        
+
+    }
+}
+
+@media screen and (max-width: 720px) {
+    footer {
+        height: 50vh;
+        justify-content: space-around;
+    }
+    .address-container {
+        height: 17rem;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .address-container .box-container {
+        border: none;
+    }
+    .slide-1 p,
+    .slide-2 p,
+    .slide-3 p {
+        width: 70vw;
+        font-size: 30px;
+
+    }
+
+    .best-products {
+        height: 320vh;
+    }
+
+    .best-products .product-list {
+        flex-direction: column;
+    }
+
+    .best-products .product-list img {
+        height: 80vh;
+    }
+
+    .best-products .product-list .product {
+        margin-bottom: 5vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+   
+    .slide-2 a{
+        top: 25vh;
+        left: 3vh;
+    }
+    .slide-3 a {
+        top: 30vh;
+        left: 3vh;
+    }
+    .slide-1 p,
+    .slide-2 p,
+    .slide-3 p {
+       left: 10vh;
+    }
+}
+@media screen and (max-width: 500px) {
+    /* .slide-1 p,
+    .slide-2 p,
+    .slide-3 p {
+        display: none;
+    } */
+    .press-on-nails {
+        height: 70vh;
+    }
+    .lips-booster-creme {
+        height: 70vh;
+    }
+    .lips-booster-creme .box-content {
+        height: 45vh;
+        width: 45vh;
+    }
+    .press-on-nails .box-content {
+        height: 45vh;
+        width: 45vh;
+    }
+    .slide-3 {
+        background-size: cover;
+        background-position: top;
+    }
+    .best-products {
+        height: 270vh;
+    }
+    .best-products .product-list img {
+        height: 60vh;
+    } 
+}
+@media screen and (max-width: 400px) {
+    .lips-booster-creme .box-content {
+        height: 39.5vh;
+        width: 39.5vh;
+    }
+    .press-on-nails .box-content {
+        height: 39.5vh;
+        width: 39.5vh;
+    }
+}
+/*
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 45vh;
+    background-color: #fff4ec;
+}
+
+.address-container {
+    color: #b56020;
+    display: flex;
+}
+
+.address-container .box-container {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-right: 1px solid #b56020;
+    border-left: 1px solid #b56020;
+    height: 6rem;
+}
+
+.social-media-icons {
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+}
+
+*/
