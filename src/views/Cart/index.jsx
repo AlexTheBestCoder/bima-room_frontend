@@ -33,7 +33,7 @@ const Cart = () => {
     const fetchCartProducts = async () => {
       try {
         const token = Cookies.get("token");
-        const response = await fetch("https://bima-room-backend.onrender.com/api/products", {
+        const response = await fetch("https://bima-room-backend-ujzj.onrender.com/api/products", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -63,7 +63,7 @@ const Cart = () => {
     try {
       const token = Cookies.get("token"); // Récupérer le jeton depuis les cookies
       const response = await fetch(
-        `https://bima-room-backend.onrender.com/api/products/${productId}`,
+        `https://bima-room-backend-ujzj.onrender.com/api/products/${productId}`,
         {
           method: "PUT",
           headers: {
@@ -102,7 +102,7 @@ const Cart = () => {
     try {
       const token = Cookies.get("token"); // Récupérer le jeton depuis les cookies
       const response = await fetch(
-        `https://bima-room-backend.onrender.com/api/products/${productId}`,
+        `https://bima-room-backend-ujzj.onrender.com/api/products/${productId}`,
         {
           method: "DELETE",
           headers: {

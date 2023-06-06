@@ -25,7 +25,7 @@ const LoginForm = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://bima-room-backend.onrender.com/api/login",
+        "https://bima-room-backend-ujzj.onrender.com/api/login",
         {
           email,
           password,

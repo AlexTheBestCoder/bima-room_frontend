@@ -23,7 +23,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://bima-room-backend.onrender.com/api/register", {
+      const response = await axios.post("https://bima-room-backend-ujzj.onrender.com/api/register", {
         name,
         email,
         password,

@@ -17,7 +17,7 @@ const Product = ({ product, isAuthenticated, userId, token }) => {
   const addToCart = async () => {
     try {
       const response = await axios.post(
-        "https://bima-room-backend.onrender.com/api/products",
+        "https://bima-room-backend-ujzj.onrender.com/api/products",
         {
           title: product.title,
           price: product.price,
