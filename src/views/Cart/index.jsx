@@ -125,7 +125,7 @@ const Cart = () => {
   };
   return (
     <>
-      {isLoading ? (
+      {isLoading || totalPrice === 0 ? (
         <div className="loading-container">
           <MutatingDots
             height="150"
