@@ -46,12 +46,13 @@ const Register = () => {
     <>
       {isLoading ? (
         <div className="loading-container">
-          <Puff
-            height="250"
-            width="250"
+          <MutatingDots
+            height="100"
+            width="100"
             color="#d39932"
-            radius={1}
-            ariaLabel="puff-loading"
+            secondaryColor="#d39932"
+            radius="12.5"
+            ariaLabel="mutating-dots-loading"
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
