@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 import img_form from "../../assets/registration-form-4.jpg";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { MutatingDots } from "react-loader-spinner";
+import { MutatingDots, Rings } from "react-loader-spinner";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -55,16 +55,15 @@ const LoginForm = () => {
     <>
       {isLoading ? (
         <div className="loading-container">
-          <MutatingDots
-            height="150"
-            width="150"
+          <Rings
+            height="250"
+            width="250"
             color="#d39932"
-            secondaryColor="#b56020"
-            radius="12.5"
-            ariaLabel="mutating-dots-loading"
+            radius="6"
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
+            ariaLabel="rings-loading"
           />
         </div>
       ) : (

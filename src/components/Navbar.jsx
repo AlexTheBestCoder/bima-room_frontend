@@ -68,14 +68,22 @@ export default function Navbar() {
       >
         <li>
           <Link
+            to={"/"}
+            className="text-yellow-600 hover:text-yellow-900"
+          >
+            Accueil
+          </Link>
+        </li>
+        <li>
+          <Link
             to={"/boutique"}
             className="text-yellow-600 hover:text-yellow-900"
           >
-            Acheter
+            Boutique
           </Link>
         </li>
         <>
-          <li>
+          {/* <li>
             <Link
               className="text-yellow-600 hover:text-yellow-900"
               translate="no"
@@ -87,7 +95,7 @@ export default function Navbar() {
             <Link className="text-yellow-600 hover:text-yellow-900">
               <span translate="no">Lips booster</span> crème
             </Link>
-          </li>
+          </li> */}
         </>
         <li>
           <Link className="text-yellow-600 hover:text-yellow-900">Blog</Link>

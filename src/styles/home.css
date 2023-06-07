@@ -29,8 +29,20 @@
     position: relative;
     left: 40vh; */
     font-size: 45px;
-    font-weight: 900;
-    
+    /* font-weight: 900; */
+    font-family: 'ZCOOL XiaoWei', sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+.slide-1 span,
+.slide-2 span,
+.slide-3 span {
+    /* top: 22vh;
+    position: relative;
+    left: 40vh; */
+    /* font-size: 45px; */
+    /* font-weight: 900; */
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     color: white;
     text-transform: uppercase;
 }
@@ -42,8 +54,9 @@
     font-size: 14px;
     padding: 2vh;
     width: auto;
-    font-weight: bold;
+    
     text-decoration: none;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     color: white;
     background-color: #d39932;
     /* top: 28vh;
@@ -65,6 +78,7 @@
     align-items: center;
     display: flex;
     background-size: cover;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     background-image: url('../assets/cils-bg.webp');
     height: 58.8vh;
     /* border: 1px solid black; */
@@ -86,11 +100,13 @@
 }
 
 .best-products p {
+    
     font-size: 4vh;
     letter-spacing: 0.5vw;
 }
 
 .best-products p h6 {
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     font-size: 23px;
     text-align: center;
     color: #d39932;
@@ -98,6 +114,7 @@
 
 .best-products a {
     padding: 2vh;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     font-weight: bold;
     text-decoration: none;
     color: white;
@@ -117,11 +134,11 @@
 .best-products .product-list .product {
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-transform: uppercase;
 }
 
 .best-products .product-list .product h4 {
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     text-align: center;
 }
 
@@ -134,6 +151,7 @@
 
 .press-on-nails {
     height: 100vh;
+    
     background-image: url('../assets/b3d2a5f91121434bb73a96041b57b6d9.webp');
     background-size: cover;
     background-attachment: fixed;
@@ -149,17 +167,23 @@
     position: relative;
     background-color: white;
     justify-content: space-evenly;
+    
     align-items: center;
     flex-direction: column;
     height: 50vh;
     width: 50vh;
 }
 .press-on-nails .box-content p {
-    font-size: 2.5vh;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
+    font-size: 3vh;
+}
+.press-on-nails .box-content span {
+    font-family: 'ZCOOL XiaoWei', sans-serif;
 }
 .press-on-nails .box-content a {
     text-transform: uppercase;
     font-size: 2.5vh;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     color: white;
     text-decoration: none;
     padding: 2vh;
@@ -167,6 +191,7 @@
 }
 
 .lips-booster-creme {
+    
     height: 100vh;
     background-image: url('../assets/levre-bg.jpeg');
     background-size: cover;
@@ -177,6 +202,7 @@
 }
 
 .lips-booster-creme .box-content {
+    
     display: flex;
     text-align: center;
     color: #d39932;
@@ -188,10 +214,12 @@
     width: 50vh;
 }
 .lips-booster-creme .box-content p {
-    font-size: 2.5vh;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
+    font-size: 3vh;
 }
 
 .lips-booster-creme .box-content a {
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     text-transform: uppercase;
     font-size: 2.5vh;
     color: white;

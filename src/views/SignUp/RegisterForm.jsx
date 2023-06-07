@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "./RegisterForm.css";
 import img_form from "../../assets/registration-form-4.jpg";
-import { MutatingDots } from "react-loader-spinner";
+import { MutatingDots, Rings } from "react-loader-spinner";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -23,11 +23,14 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://bima-room-backend-ujzj.onrender.com/api/register", {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://bima-room-backend-ujzj.onrender.com/api/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
       navigate("/connexion");
       setMessage(response.data.message);
     } catch (err) {
@@ -43,16 +46,15 @@ const Register = () => {
     <>
       {isLoading ? (
         <div className="loading-container">
-          <MutatingDots
-            height="150"
-            width="150"
+          <Rings
+            height="250"
+            width="250"
             color="#d39932"
-            secondaryColor="#b56020"
-            radius="12.5"
-            ariaLabel="mutating-dots-loading"
+            radius="6"
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
+            ariaLabel="rings-loading"
           />
         </div>
       ) : (

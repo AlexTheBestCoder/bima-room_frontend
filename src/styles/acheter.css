@@ -6,14 +6,14 @@
     padding-right: 1cm;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
 
 .title {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    font-family: 'Kalam', cursive;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
     /* background-color: #d39932; */
     /* border: 1px solid bla    ck; */
     color: #d39932;
@@ -23,14 +23,15 @@
 
 .product-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10vh;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5vh;
 }
 
 .product {
-    border: 1px solid #ccc;
+    box-shadow: 5px 5px 10px gray;
     padding: 10px;
-    text-align: center;
+    /* text-align: center; */
+    text-transform: uppercase;
 }
 
 .product img {
@@ -39,19 +40,41 @@
     object-fit: cover;
 }
 
-.product h3 {
-    font-size: 16px;
+.product h4 {
+    font-family: 'ZCOOL XiaoWei', sans-serif;
+    font-size: 20px;
     margin: 10px 0;
 }
 
 .product p {
-    font-size: 14px;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
+    font-size: 2.5vh;
+    color: #b56020;
     font-weight: bold;
 }
+.product button {
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    width: 100%;
+}
+.filters {
+    display: flex;
+    height: 10rem;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    width: 40rem;
+}
+.filters input {
+    height: max-content;
+}
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
+    
     .product-list {
-        grid-gap: 5vh;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 4vh;
     }
 }
 
@@ -68,6 +91,17 @@
     .product-list {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 3vh;
+    }
+    .filters {
+        width: 35rem;
+    }
+}
+@media screen and (max-width: 628px) {
+    
+    .filters {
+        width: max-content;
+        height: 7rem;
+        flex-direction: column;
     }
 }
 

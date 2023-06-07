@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 // import { css } from "@emotion/react";
-import { MutatingDots } from "react-loader-spinner";
+import { MutatingDots, Rings } from "react-loader-spinner";
 import "./index.css";
 
 const Cart = () => {
@@ -33,12 +33,15 @@ const Cart = () => {
     const fetchCartProducts = async () => {
       try {
         const token = Cookies.get("token");
-        const response = await fetch("https://bima-room-backend-ujzj.onrender.com/api/products", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          "https://bima-room-backend-ujzj.onrender.com/api/products",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         const data = await response.json();
         if (response.ok) {
           setProducts(data);
@@ -127,16 +130,15 @@ const Cart = () => {
     <>
       {isLoading || totalPrice === 0 ? (
         <div className="loading-container">
-          <MutatingDots
-            height="150"
-            width="150"
+          <Rings
+            height="250"
+            width="250"
             color="#d39932"
-            secondaryColor="#b56020"
-            radius="12.5"
-            ariaLabel="mutating-dots-loading"
+            radius="6"
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
+            ariaLabel="rings-loading"
           />
         </div>
       ) : (

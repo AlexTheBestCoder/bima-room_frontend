@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import Slider from "react-slick";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { MutatingDots } from "react-loader-spinner";
+import { MutatingDots, Rings } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -29,7 +29,7 @@ export default function Home() {
     },
 
     {
-      name: "KIT LIPS BOOSTER CRÈME",
+      name: "KIT LIPS BOOSTER CREME",
       price: 10000 ,
       image: kit_lips_booster,
       isBestSeller: true,
@@ -48,17 +48,16 @@ export default function Home() {
     <>
     {isLoading ? (
       <div className="loading-container">
-        <MutatingDots
-          height="150"
-          width="150"
-          color="#d39932"
-          secondaryColor="#b56020"
-          radius="12.5"
-          ariaLabel="mutating-dots-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
+        <Rings
+            height="250"
+            width="250"
+            color="#d39932"
+            radius="6"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel="rings-loading"
+          />
       </div>
     ) : (
     <div className="home-container">
@@ -67,21 +66,21 @@ export default function Home() {
       <Carousel autoPlay={true} interval={3000} showStatus={false} showArrows={false} infiniteLoop={true} showThumbs={false}>
         <div className="slide-2">
           <p>
-            Une Manicure parfaite <br /> en un clin d'œil <br /> avec nos{" "}
-            <span translate="no" style={{fontWeight: '900'}}>press on nails</span><br /> tendance
+            Une Manicure parfaite <br /> en un clin d'oeil <br /> avec nos{" "}
+            <span translate="no" >press on nails</span><br /> tendance
           </p>
-          <Link to="/content1" className="content-link" style={{fontWeight: '900'}}>
-           ACHETER VOS {" "}<span translate="no" style={{fontWeight: '900'}}>PRESS ON NAILS</span>
+          <Link to="/content1" className="content-link" >
+           ACHETER VOS {" "}<span translate="no" >PRESS ON NAILS</span>
           </Link>
         </div>
         <div className="slide-3">
           <p>
-            Des lèvres irrésistibles avec<br /> le kit{" "}
-            <span translate="no" style={{fontWeight: '900'}}>LIPS BOOSTER</span> crème
+            Des levres irresistibles avec<br /> le kit{" "}
+            <span translate="no" >LIPS BOOSTER</span> creme
             <br /> pour sublimer votre sourire.
           </p>
-          <Link to="/content2" className="content-link" style={{fontWeight: '900'}}>
-            ACHETER VOS {" "}<span translate="no" style={{fontWeight: '900'}}>LIPS BOOSTER</span> CRÈME
+          <Link to="/content2" className="content-link" >
+            ACHETER VOS {" "}<span translate="no" >LIPS BOOSTER</span> CREME
           </Link>
         </div>
         </Carousel>
@@ -107,7 +106,7 @@ export default function Home() {
           <p>
             #Optez pour nos {" "}<span translate="no">press on nails</span>
           </p>
-          <Link>Achetez</Link>
+          <Link>Acheter</Link>
         </div>
       </div>
       <br />
@@ -116,6 +115,7 @@ export default function Home() {
         <p>
           MEILLEURS VENTES <br /> <h6>CHEZ CAPRICE BEAUTY</h6>
         </p>
+        <br />
         <div className="product-list">
           {products.map((product, index) => (
             <div key={index} className="product">
@@ -126,7 +126,8 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <Link to={"/boutique"}>ALLER À LA BOUTIQUE</Link>
+        <br /><br />
+        <Link to={"/boutique"}>ALLER A LA BOUTIQUE</Link>
       </div>
       <br />
       <br />
@@ -138,7 +139,7 @@ export default function Home() {
           <p>
             #Choisissez nos {" "}<span translate="no">lips booster</span>{" "} crème
           </p>
-          <Link>Achetez</Link>
+          <Link>Acheter</Link>
         </div>
       </div>
       <Footer />
