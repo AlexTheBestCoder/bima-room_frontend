@@ -129,6 +129,8 @@
 
 .best-products .product-list img {
     height: 60vh;
+    width: max-content;
+    object-fit: contain;
 }
 
 .best-products .product-list .product {
@@ -254,8 +256,26 @@ footer {
     width: 10rem;
     justify-content: space-between;
 }
+@media screen and (max-width: 1530px) {
+    .best-products .product-list img {
+        height: 55vh;
+    } 
+}
+@media screen and (max-width: 1400px) {
+    .best-products .product-list img {
+        height: 50vh;
+    } 
+}
+@media screen and (max-width: 1300px) {
+    .best-products .product-list img {
+        height: 48vh;
+    } 
+}
 
 @media screen and (max-width: 1100px) {
+    .slide-3 {
+        background-position: center;
+    }
     .press-on-nails {
         background-size: contain;
     }
@@ -263,7 +283,7 @@ footer {
         background-size: contain;
     }
     .best-products .product-list img {
-        height: 50vh;
+        height: 35vh;
     }
 
     .slide-1 p,
@@ -282,13 +302,7 @@ footer {
 }
 
 @media screen and (max-width: 900px) {
-    .best-products .product-list img {
-        height: 40vh;
-    }
-    .slide-3 {
-        background-position: center;
-    }
-
+    
     .slide-1 p,
     .slide-2 p,
     .slide-3 p {
@@ -303,6 +317,27 @@ footer {
     .slide-3 a {
         
 
+    }
+}
+
+@media screen and (max-width: 800px ) {
+    .best-products .product-list {
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .best-products {
+        height: 320vh;
+    }
+
+    
+
+    .best-products .product-list img {
+        height: 70vh;
+    }
+
+    .best-products .product-list .product {
+        margin-bottom: 5vh;
     }
 }
 
@@ -327,21 +362,6 @@ footer {
 
     }
 
-    .best-products {
-        height: 320vh;
-    }
-
-    .best-products .product-list {
-        flex-direction: column;
-    }
-
-    .best-products .product-list img {
-        height: 80vh;
-    }
-
-    .best-products .product-list .product {
-        margin-bottom: 5vh;
-    }
 }
 
 @media screen and (max-width: 600px) {
@@ -388,7 +408,7 @@ footer {
         height: 270vh;
     }
     .best-products .product-list img {
-        height: 60vh;
+        height: 50vh;
     } 
 }
 @media screen and (max-width: 400px) {

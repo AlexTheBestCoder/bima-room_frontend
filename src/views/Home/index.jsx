@@ -115,7 +115,7 @@ export default function Home() {
         <p>
           MEILLEURS VENTES <br /> <h6>CHEZ CAPRICE BEAUTY</h6>
         </p>
-        <br />
+        
         <div className="product-list">
           {products.map((product, index) => (
             <div key={index} className="product">
@@ -126,7 +126,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <br /><br />
+        
         <Link to={"/boutique"}>ALLER A LA BOUTIQUE</Link>
       </div>
       <br />
