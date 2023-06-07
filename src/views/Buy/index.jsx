@@ -11,7 +11,7 @@ import nails_img_6 from "../../assets/ongles2.jpeg";
 import lips_booster_img from "../../assets/kit_lips_booster.jpg";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { MutatingDots, Rings } from "react-loader-spinner";
+import { MutatingDots, Puff, Rings } from "react-loader-spinner";
 
 const Product = ({ product, isAuthenticated, userId, token }) => {
   const addToCart = async () => {
@@ -35,7 +35,7 @@ const Product = ({ product, isAuthenticated, userId, token }) => {
 
       if (response.status === 201) {
         console.log("Article ajouté au panier");
-        alert(`Vous venez d'ajouter ${product.title} au panier`)
+        alert(`Vous venez d'ajouter ${product.title} au panier`);
       } else {
         throw new Error("Erreur lors de l'ajout de l'article au panier");
       }
@@ -173,15 +173,15 @@ const ProductList = () => {
     <>
       {isLoading ? (
         <div className="loading-container">
-          <Rings
+          <Puff
             height="250"
             width="250"
             color="#d39932"
-            radius="6"
+            radius={1}
+            ariaLabel="puff-loading"
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
-            ariaLabel="rings-loading"
           />
         </div>
       ) : (
@@ -203,7 +203,9 @@ const ProductList = () => {
                   Press On Nails
                 </option>
                 <option value="kit_lips_booster">
-                 <p>Kit <span translate="no">Lips Booster</span> Crème</p> 
+                  <p>
+                    Kit <span translate="no">Lips Booster</span> Crème
+                  </p>
                 </option>
               </select>
             </div>

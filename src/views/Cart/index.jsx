@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 // import { css } from "@emotion/react";
-import { MutatingDots, Rings } from "react-loader-spinner";
+import { MutatingDots, Puff, Rings } from "react-loader-spinner";
 import "./index.css";
 
 const Cart = () => {
@@ -130,15 +130,15 @@ const Cart = () => {
     <>
       {isLoading || totalPrice === 0 ? (
         <div className="loading-container">
-          <Rings
+          <Puff
             height="250"
             width="250"
             color="#d39932"
-            radius="6"
+            radius={1}
+            ariaLabel="puff-loading"
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
-            ariaLabel="rings-loading"
           />
         </div>
       ) : (
