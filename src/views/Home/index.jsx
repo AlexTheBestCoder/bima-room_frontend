@@ -48,7 +48,7 @@ export default function Home() {
     <>
       {isLoading ? (
         <div className="loading-container">
-         <MutatingDots
+          <MutatingDots
             height="100"
             width="100"
             color="#d39932"
@@ -71,6 +71,7 @@ export default function Home() {
             showArrows={false}
             infiniteLoop={true}
             showThumbs={false}
+            swipeable={false} // Ajoutez cette ligne pour désactiver le défilement
           >
             <div className="slide-2">
               <p>
