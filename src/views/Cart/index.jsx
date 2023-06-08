@@ -1,9 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-// import { css } from "@emotion/react";
-import { MutatingDots, Puff, Rings } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 import "./index.css";
 
 const Cart = () => {
@@ -21,26 +19,17 @@ const Cart = () => {
     return total;
   }, [products]);
 
-  // Mettre à jour le prix total chaque fois que l'état des produits change
   const updateTotalPrice = useCallback(() => {
     const total = calculateTotalPrice();
     setTotalPrice(total);
   }, [calculateTotalPrice]);
-  useEffect(() => {
-    // Fonction pour calculer le prix total des produits
 
-    // Récupérer les produits du panier et mettre à jour le prix total
+  useEffect(() => {
     const fetchCartProducts = async () => {
       try {
-        const token = Cookies.get("token");
+        // Remplacez l'URL de l'API avec votre nouvelle URL pour récupérer les produits du panier sans authentification
         const response = await fetch(
-          "https://bima-room-backend-ujzj.onrender.com/api/products",
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
+          "https://bima-room-backend-ujzj.onrender.com/api/products/cart"
         );
         const data = await response.json();
         if (response.ok) {
@@ -55,23 +44,24 @@ const Cart = () => {
           error
         );
       } finally {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1500);
       }
     };
 
     fetchCartProducts();
-  }, [products, updateTotalPrice]);
+  }, [updateTotalPrice]);
 
   const handleQuantityChange = async (productId, newQuantity) => {
     try {
-      const token = Cookies.get("token"); // Récupérer le jeton depuis les cookies
+      // Remplacez l'URL de l'API avec votre nouvelle URL pour mettre à jour la quantité d'un produit
       const response = await fetch(
         `https://bima-room-backend-ujzj.onrender.com/api/products/${productId}`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             quantity: newQuantity,
@@ -80,8 +70,6 @@ const Cart = () => {
       );
       const data = await response.json();
       if (response.ok) {
-        // Mettre à jour le produit dans la liste des produits
-
         setProducts((prevProducts) =>
           prevProducts.map((product) =>
             product._id === productId
@@ -103,19 +91,15 @@ const Cart = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      const token = Cookies.get("token"); // Récupérer le jeton depuis les cookies
+      // Remplacez l'URL de l'API avec votre nouvelle URL pour supprimer un produit
       const response = await fetch(
         `https://bima-room-backend-ujzj.onrender.com/api/products/${productId}`,
         {
           method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
         }
       );
       const data = await response.json();
       if (response.ok) {
-        // Supprimer le produit de la liste des produits
         setProducts((prevProducts) =>
           prevProducts.filter((product) => product._id !== productId)
         );
@@ -126,29 +110,30 @@ const Cart = () => {
       console.log("Erreur lors de la suppression du produit", error);
     }
   };
+
   return (
     <>
-      {isLoading || totalPrice === 0 ? (
+      
+      {isLoading ? (
         <div className="loading-container">
           <MutatingDots
-            height="100"
-            width="100"
+            height={100}
+            width={100}
             color="#d39932"
             secondaryColor="#d39932"
-            radius="12.5"
+            radius={12.5}
             ariaLabel="mutating-dots-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
             visible={true}
           />
         </div>
       ) : (
         <>
-          <Navbar />
+        <Navbar />
+        <div className="cart-container">
           {products.length === 0 ? (
             <p className="empty-cart-message">Aucun produit dans le panier.</p>
           ) : (
-            <div className="cart-container">
+            <>
               <ul className="cart-products-list">
                 <p className="cart-product-title">Mon Panier</p>
                 {products.map((product) => (
@@ -204,16 +189,15 @@ const Cart = () => {
                     </div>
                   </li>
                 ))}
-                <div
-                  style={{ borderTop: "1px solid rgba(0, 0, 0, 0.227)" }}
-                ></div>
+                <div style={{ borderTop: "1px solid rgba(0, 0, 0, 0.227)" }}></div>
               </ul>
               <p>{totalPrice}</p>
-            </div>
+            </>
           )}
-          <Footer />
+        </div>
         </>
       )}
+      <Footer />
     </>
   );
 };

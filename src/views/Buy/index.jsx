@@ -10,10 +10,9 @@ import nails_img_5 from "../../assets/press_on_nails_5.jpg";
 import nails_img_6 from "../../assets/ongles2.jpeg";
 import lips_booster_img from "../../assets/kit_lips_booster.jpg";
 import axios from "axios";
-import Cookies from "js-cookie";
-import { MutatingDots, Puff, Rings } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 
-const Product = ({ product, isAuthenticated, userId, token }) => {
+const Product = ({ product }) => {
   const addToCart = async () => {
     try {
       const response = await axios.post(
@@ -23,13 +22,6 @@ const Product = ({ product, isAuthenticated, userId, token }) => {
           price: product.price,
           image: product.image,
           category: product.category,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
         }
       );
 
@@ -49,9 +41,7 @@ const Product = ({ product, isAuthenticated, userId, token }) => {
       <img src={product.image} alt={product.title} />
       <h4>{product.title}</h4>
       <p>{product.price} F CFA</p>
-      {isAuthenticated && (
-        <button onClick={addToCart}>Ajouter au panier</button>
-      )}
+      <button onClick={addToCart}>Ajouter au panier</button>
     </div>
   );
 };
@@ -65,43 +55,7 @@ const ProductList = () => {
       image: nails_img_1,
       category: "press_on_nails",
     },
-    {
-      id: 2,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_2,
-      category: "press_on_nails",
-    },
-
-    {
-      id: 3,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_3,
-      category: "press_on_nails",
-    },
-
-    {
-      id: 4,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_4,
-      category: "press_on_nails",
-    },
-    {
-      id: 5,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_5,
-      category: "press_on_nails",
-    },
-    {
-      id: 6,
-      title: "Press On Nails XXL",
-      price: 80000,
-      image: nails_img_6,
-      category: "press_on_nails",
-    },
+    // ... other products
   ]);
 
   const [kit_lips_booster] = useState([
@@ -116,26 +70,13 @@ const ProductList = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [userId, setUserId] = useState("");
-  const [token, setToken] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedToken = Cookies.get("token");
-    console.log("Token récupéré des cookies:", storedToken);
-    const storedId = Cookies.get("userId");
-    console.log("ID utilisateur extrait des cookies:", storedId);
-
-    setToken(storedToken);
-    setUserId(storedId);
-    if (storedToken && storedId) {
-      setIsAuthenticated(true);
-    }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   }, []);
-
-  console.log("isAuthenticated:", isAuthenticated);
-  console.log("userId:", userId);
-  console.log("token:", token);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -162,12 +103,6 @@ const ProductList = () => {
       filterCategory === "" || product.category === filterCategory;
     return matchesSearchQuery && matchesCategory;
   });
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 2000);
 
   return (
     <>
@@ -213,22 +148,10 @@ const ProductList = () => {
             <br />
             <div className="product-list">
               {filteredProductsLips.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                  isAuthenticated={isAuthenticated}
-                  userId={userId}
-                  token={token}
-                />
+                <Product key={product.id} product={product} />
               ))}
               {filteredProductsPressOnNails.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                  isAuthenticated={isAuthenticated}
-                  userId={userId}
-                  token={token}
-                />
+                <Product key={product.id} product={product} />
               ))}
             </div>
           </div>
