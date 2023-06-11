@@ -68,7 +68,7 @@
     align-items: center;
 }
 .img-bottom img {
-    top: 2.7rem;
+    top: 3rem;
     bottom: 0;
     object-fit: cover;
     height: 28rem;
