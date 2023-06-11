@@ -101,6 +101,10 @@
     .egerie-box-container .main .box-container-left .main p {
         width: 15rem;
     }
+    .img-bottom img {
+        top: 5;
+        /* width: auto; */
+    }
 }
 @media screen and (max-width: 350px) {
     .img-bottom img {
