@@ -1,3 +1,7 @@
 .App {
     box-sizing: border-box;
 }
+img {
+    position: relative;
+    bottom: 0;
+}

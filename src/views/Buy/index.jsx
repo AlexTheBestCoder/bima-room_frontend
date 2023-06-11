@@ -15,26 +15,29 @@ import { MutatingDots } from "react-loader-spinner";
 const Product = ({ product }) => {
   const addToCart = async () => {
     try {
+      const cartId = document.cookie.split("=")[1]; // Récupère l'identifiant du panier depuis les cookies
+  
       const response = await axios.post(
-        "https://bima-room-backend-ujzj.onrender.com/api/products",
+        'http://localhost:4000/api/cart/add',
         {
+          cartId: cartId,
           title: product.title,
           price: product.price,
           image: product.image,
           category: product.category,
+        },
+        {
+          withCredentials: true, // Inclure les cookies dans la requête
         }
       );
-
-      if (response.status === 201) {
-        console.log("Article ajouté au panier");
-        alert(`Vous venez d'ajouter ${product.title} au panier`);
-      } else {
-        throw new Error("Erreur lors de l'ajout de l'article au panier");
-      }
+      console.log(response.data)
+  
+      // Reste du code
     } catch (error) {
-      console.error("Erreur lors de l'ajout de l'article au panier:", error);
+      console.error('Erreur lors de l\'ajout de l\'article au panier:', error);
     }
   };
+  
 
   return (
     <div className="product">

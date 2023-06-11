@@ -67,10 +67,7 @@ export default function Navbar() {
         }`}
       >
         <li>
-          <Link
-            to={"/"}
-            className="text-yellow-600 hover:text-yellow-900"
-          >
+          <Link to={"/"} className="text-yellow-600 hover:text-yellow-900">
             Accueil
           </Link>
         </li>
@@ -98,7 +95,7 @@ export default function Navbar() {
           </li> */}
         </>
         <li>
-          <Link className="text-yellow-600 hover:text-yellow-900">Blog</Link>
+          <Link className="text-yellow-600 hover:text-yellow-900" to={'/egerie'}>Egerie</Link>
         </li>
         <li>
           <Link className="text-yellow-600 hover:text-yellow-900">
@@ -131,12 +128,11 @@ export default function Navbar() {
         )}
         {!isMenuOpen && (
           <Link to={"/panier"}>
-          <button>
-            <img src={btn_panier} alt="btn_panier" />
-          </button>
-        </Link>
+            <button>
+              <img src={btn_panier} alt="btn_panier" />
+            </button>
+          </Link>
         )}
-        
       </div>
     </nav>
   );

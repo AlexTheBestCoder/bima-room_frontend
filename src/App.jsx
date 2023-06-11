@@ -6,6 +6,7 @@ import ProductList from './views/Buy'
 import Register from './views/SignUp/RegisterForm'
 import LoginForm from './views/SignIn/LoginForm'
 import Cart from './views/Cart'
+import Egerie from './views/Egerie'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/boutique' element={<ProductList />} />
+        <Route path='/egerie' element={<Egerie />} />
         <Route path={'/connexion'} element={<LoginForm />} />
         <Route path={'/inscription'} element={<Register/>} />
         <Route path='/panier' element={<Cart />} />

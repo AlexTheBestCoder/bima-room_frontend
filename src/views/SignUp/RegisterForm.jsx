@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://bima-room-backend-ujzj.onrender.com/api/register",
+        "http://localhost:4000/api/register",
         {
           name,
           email,
