@@ -58,6 +58,41 @@ const ProductList = () => {
       image: nails_img_1,
       category: "press_on_nails",
     },
+    {
+      id: 2,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_2,
+      category: "press_on_nails",
+    },
+    {
+      id: 3,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_3,
+      category: "press_on_nails",
+    },
+    {
+      id: 4,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_4,
+      category: "press_on_nails",
+    },
+    {
+      id: 5,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_5,
+      category: "press_on_nails",
+    },
+    {
+      id: 6,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_6,
+      category: "press_on_nails",
+    },
     // ... other products
   ]);
 
@@ -78,7 +113,7 @@ const ProductList = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1500);
   }, []);
 
   const handleSearchChange = (event) => {

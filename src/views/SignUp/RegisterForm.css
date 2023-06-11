@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fdcfcf;
+    /* background-color: #fdcfcf; */
     height: 80vh;
 }
 
@@ -17,7 +17,7 @@
 .form-title {
     font-family: 'ZCOOL XiaoWei', sans-serif;
     font-size: 30px;
-    color: #ff9a9c;
+    color: #d39932;
 }
 
 .input-container {
@@ -29,13 +29,13 @@
 .input-icon {
     width: 15px;
     height: 15px;
-    border: 1px solid #ff9a9c;
+    border: 1px solid #d39932;
     border-radius: 50%;
     margin-right: 10px;
 }
 
 .input-container.active .input-icon {
-    background-color: #ff9a9c;
+    background-color: #d39932;
 }
 
 .input-container-wrapper {
@@ -64,7 +64,7 @@ input[type="password"] {
 
 
 button[type="submit"] {
-    background-color: #ff9a9c;
+    background-color: #d39932;
     padding: 1.2vh;
     padding-left: 3vh;
     padding-right: 3vh;
@@ -94,7 +94,7 @@ button[type="submit"] {
 }
 
 .submit-container p a {
-    color: #ff9a9c;
+    color: #d39932;
 }
 
 .img-form-container {
@@ -149,7 +149,7 @@ button[type="submit"] {
 
 
     button[type="submit"] {
-        background-color: #ff9a9c;
+        background-color: #d39932;
         padding: 1.2vh;
         padding-left: 3vh;
         padding-right: 3vh;
