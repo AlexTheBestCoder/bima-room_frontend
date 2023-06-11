@@ -102,13 +102,7 @@
         width: 15rem;
     }
     .img-bottom img {
-        top: 5;
-        /* width: auto; */
-    }
-}
-@media screen and (max-width: 350px) {
-    .img-bottom img {
-        height: 20rem;
+        height: 15rem;
         /* width: auto; */
     }
 }
