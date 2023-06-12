@@ -12,7 +12,7 @@
     display: flex;
     height: 120vh;
     padding-bottom: 10vh;
-    background-color: #eee8e8
+    background-color: black;
 }
 
 .egerie-box-container .main .box-container {
@@ -68,10 +68,9 @@
     align-items: center;
 }
 .img-bottom img {
-    top: 3rem;
-    bottom: 0;
+    border: 1px solid black;
     object-fit: cover;
-    height: 28rem;
+    height: 25rem;
     /* width: auto; */
 }
 

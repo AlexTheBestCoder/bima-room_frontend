@@ -7,7 +7,6 @@ import grille_tarifaire from "../../assets/grille-tarifaire.jpg";
 import { MutatingDots } from "react-loader-spinner";
 
 export default function Egerie() {
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -46,14 +45,15 @@ export default function Egerie() {
                   <img src={hero_img} alt="hero_img" />
                   <br />
                   <p>
-                    Sasha Caprice, plus connue sous le nom de la Pancarte est
-                    une influenceuse Ivoirienne, et égérie de plusieurs marques
-                    de luxe et Directrice de l'entreprise BIMA ROOM qui
-                    commercialise les Press on nails et plusieurs autres
-                    produits. <br /> Date/Lieu de naissance : 4 juin 1994 (Âge:
-                    29 ans), Taille : 1,71 m Mensurations : 33-23-35 (US);
-                    83-59-88 (EU) Poids : 63 + de 250 pub réalisées au cours
-                    de l'année 2023.
+                    L'influenceuse Ivoirienne Sasha Caprice, plus connue sous le
+                    nom de la Pancarte est égérie de plusieurs marques de luxe
+                    et Directrice de l'entreprise BIMA ROOM. En 2019 elle lance
+                    la marque Caprice Beauty un pôle de l'entreprise qui
+                    confectionne les Press on lines beaucoup apprécié par les
+                    artistes, animatrices et plusieurs stars du web Ivoiriens. <br /> <br /> -
+                    Date de naissance : 4 juin 1994 (Âge: 29 ans), <br /> - Taille :
+                    1,71 m Mensurations : 33-23-35 (US); 83-59-88 (EU) <br /> - Poids :
+                    71 + de 250 pub réalisées au cours de l'année 2023.
                   </p>
                 </div>
               </div>
