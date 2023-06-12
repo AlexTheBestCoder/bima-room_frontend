@@ -64,12 +64,13 @@
 }
 .img-bottom {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    /* align-items: center; */
 }
 .img-bottom img {
     border: 1px solid black;
     object-fit: cover;
+    /* width: 100%; */
     height: 25rem;
     /* width: auto; */
 }
@@ -81,7 +82,7 @@
 }
 @media screen and (max-width: 800px) {
     .egerie-box-container .main {
-        height: 250vh;
+        height: 180vh;
         flex-direction: column;
     }
     .egerie-box-container .main .box-container {
@@ -95,13 +96,13 @@
 
 @media screen and (max-width: 450px) {
     .img-top {
-        background-position: center;
+        /* background-position: center; */
     }
     .egerie-box-container .main .box-container-left .main p {
         width: 15rem;
     }
     .img-bottom img {
-        height: 19rem;
+        /* height: 19rem; */
         /* width: auto; */
     }
 }
