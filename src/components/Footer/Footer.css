@@ -140,7 +140,7 @@ footer .footer-box-container {
 
 @media screen and (max-width: 800px) {
     footer {
-        height: 100vh;
+        height: 120vh;
         padding-top: 2vh;
         padding-bottom: 2vh;
         padding-left: 10vw;

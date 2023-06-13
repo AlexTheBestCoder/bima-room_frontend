@@ -38,7 +38,7 @@ export default function Egerie() {
             <div className="header">
               <div className="title">EGERIE</div>
             </div>
-            <div className="main">
+            <div className="main-box">
               <div className="box-container-left box-container">
                 <div className="header"></div>
                 <div className="main">

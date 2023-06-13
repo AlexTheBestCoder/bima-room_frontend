@@ -1,8 +1,6 @@
 nav {
-    position:fixed;
     width: 100%;
     background-color: white;
-    z-index: 900;
 }
 .button-connexion {
     display: flex;
