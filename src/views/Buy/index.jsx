@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import "../../styles/acheter.css";
 import nails_img_1 from "../../assets/press_on_nails_1.jpg";
 import nails_img_2 from "../../assets/press_on_nails_2.jpg";

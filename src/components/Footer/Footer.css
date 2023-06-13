@@ -1,0 +1,199 @@
+footer {
+    height: 80vh;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    /* border: 1px solid black; */
+}
+
+footer .footer-box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    height: 100%;
+    width: 100%;
+}
+
+.footer-height-box {
+    display: flex;
+    height: 70%;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.footer-bottom-box {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.footer-box-container .box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    height: 100%;
+    width: 100%;
+
+}
+
+.footer-box-container .box-container-left {
+    height: 80%;
+}
+
+.footer-box-container .social-media-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.footer-form .input-box {
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-form .input-box label {
+
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-form .input-box label input {
+    width: 100%;
+}
+
+.footer-form .message-box {
+    width: 100%;
+    height: 10vh;
+}
+
+.footer-form .message-box label {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-form .message-box label input {
+    width: 100%;
+}
+
+.footer-form input[type="text"],
+.footer-form input[type="email"],
+.footer-form input[type="password"] {
+    padding: 0;
+    padding-left: 0;
+    width: 5rem;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+}
+
+.footer-form input[type="text"]:hover,
+.footer-form input[type="email"]:hover,
+.footer-form input[type="password"] {
+    border-bottom: 3px solid black;
+}
+
+
+
+.footer-form button[type="submit"] {
+    background-color: transparent;
+    padding: 1.5vh;
+    /* border: 1px solid black; */
+    border-radius: 0;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    color: black;
+    background-color: white;
+}
+
+.footer-form button[type="submit"]:hover {
+    transition: all ease 1s;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 1200px) {
+    .footer-box-container .box-container {
+        width: 45%;
+
+    }
+}
+
+@media screen and (max-width: 800px) {
+    footer {
+        height: 100vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+    .footer-height-box {
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        
+    }
+    footer .footer-box-container {
+        height: 100%;
+        justify-content: space-between;
+    }
+    .footer-height-box .box-container {
+        align-items: center;
+        /* height: 40%; */
+    }
+    .collaboration-info {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .collaboration-info p:nth-child(2) {
+        width: 70%;
+    }
+    .footer-box-container .box-container {
+        height: 30%;
+        width: 100%;
+    }
+
+    .footer-form {
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .footer-box-container .box-container-right {
+        height: 65%;
+    }
+    .footer-bottom-box {
+        align-items: center;
+        height: 20%;
+        flex-direction: column;
+    }
+    .footer-bottom-box .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 80%;
+        /* border: 1px solid black; */
+    }
+}

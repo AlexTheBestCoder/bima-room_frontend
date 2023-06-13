@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import "./RegisterForm.css";
 import img_form from "../../assets/registration-form-4.jpg";
 import { MutatingDots, Puff, Rings } from "react-loader-spinner";

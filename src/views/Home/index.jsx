@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import React, { useState } from "react";
 // import Slider from "react-slick";
 import { Carousel } from "react-responsive-carousel";
@@ -11,7 +11,7 @@ import ongles_img_1 from "../../assets/ongles1.jpg";
 import ongles_img_2 from "../../assets/ongles2.jpeg";
 import kit_lips_booster from "../../assets/kit_lips_booster.jpg";
 import "../../styles/home.css";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

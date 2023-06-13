@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/logo.jpg";
+import logo from "../../assets/logo.jpg";
 import { Link } from "react-router-dom";
-import "../styles/navbar.css";
-import btn_connexion from "../assets/connexion.png";
-import btn_panier from "../assets/panier.png";
+import "./Navbar.css";
+import btn_connexion from "../../assets/connexion.png";
+import btn_panier from "../../assets/panier.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

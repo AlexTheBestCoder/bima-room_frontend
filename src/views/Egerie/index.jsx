@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import hero_img from "../../assets/hero-img.jpg";
 import grille_tarifaire from "../../assets/grille-tarifaire.jpg";
 import { MutatingDots } from "react-loader-spinner";
@@ -49,11 +49,11 @@ export default function Egerie() {
                     nom de la Pancarte est égérie de plusieurs marques de luxe
                     et Directrice de l'entreprise BIMA ROOM. En 2019 elle lance
                     la marque Caprice Beauty un pôle de l'entreprise qui
-                    confectionne les Press on lines beaucoup apprécié par les
+                    confectionne les Press On Nails beaucoup apprécié par les
                     artistes, animatrices et plusieurs stars du web Ivoiriens. <br /> <br /> -
                     Date de naissance : 4 juin 1994 (Âge: 29 ans), <br /> - Taille :
                     1,71 m Mensurations : 33-23-35 (US); 83-59-88 (EU) <br /> - Poids :
-                    71 + de 250 pub réalisées au cours de l'année 2023.
+                    71 <br /> + de 250 pub réalisées au cours de l'année 2023.
                   </p>
                 </div>
               </div>
