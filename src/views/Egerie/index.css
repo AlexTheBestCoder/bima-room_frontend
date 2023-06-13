@@ -82,7 +82,7 @@
 }
 @media screen and (max-width: 800px) {
     .egerie-box-container .main {
-        height: 230vh;
+        height: 250vh;
         flex-direction: column;
     }
     .egerie-box-container .main .box-container {
