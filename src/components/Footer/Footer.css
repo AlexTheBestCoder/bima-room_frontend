@@ -1,5 +1,7 @@
 footer {
+    border-top:  1px solid rgba(128, 128, 128, 0.331);
     height: 80vh;
+    margin-top: 5vh;
     padding-top: 10vh;
     padding-bottom: 10vh;
     padding-left: 10vw;
