@@ -13,6 +13,7 @@
     display: flex;
     height: 100vh;
     background-color: black;
+    border: 1px solid red;
 }
 
 .egerie-box-container .main .box-container {
@@ -85,7 +86,7 @@
 }
 @media screen and (max-width: 800px) {
     .egerie-box-container .main {
-        height: 250vh;
+        height: 300vh;
         flex-direction: column;
         padding-bottom: 0;
     }
