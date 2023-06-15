@@ -78,14 +78,21 @@ footer .footer-box-container {
 .footer-form .input-box label input {
     width: 100%;
 }
-
+.footer-form label {
+    font-weight: 600;
+    font-size: 20px;
+}
+.footer-form label input, textarea {
+    font-size: 1rem;
+    font-weight: 100;
+}
 .footer-form .message-box {
     width: 100%;
     height: 10vh;
 }
 
 .footer-form .message-box label {
-
+    
     height: 100%;
     width: 100%;
     display: flex;
@@ -94,12 +101,16 @@ footer .footer-box-container {
 }
 
 .footer-form .message-box label input {
+    font-size: 1rem;
+    font-weight: 100;
     width: 100%;
 }
 
 .footer-form input[type="text"],
 .footer-form input[type="email"],
-.footer-form input[type="password"] {
+.footer-form input[type="password"],
+.footer-form textarea
+{
     padding: 0;
     padding-left: 0;
     width: 5rem;
@@ -107,14 +118,24 @@ footer .footer-box-container {
     border-bottom: 1px solid black;
     background-color: transparent;
 }
-
+.footer-form textarea {
+    width: 100%;
+    resize: none;
+}
 .footer-form input[type="text"]:hover,
 .footer-form input[type="email"]:hover,
-.footer-form input[type="password"] {
+.footer-form input[type="password"]:hover,
+.footer-form textarea:hover
+ {
     border-bottom: 3px solid black;
 }
 
-
+.footer-form input[type="text"]:focus,
+.footer-form input[type="email"]:focus,
+.footer-form input[type="password"]:focus,
+.footer-form textarea:focus {
+   outline: none;
+}
 
 .footer-form button[type="submit"] {
     background-color: transparent;
@@ -128,7 +149,7 @@ footer .footer-box-container {
 }
 
 .footer-form button[type="submit"]:hover {
-    transition: all ease 1s;
+    transition: all ease 0.7s;
     background-color: black;
     color: white;
 }

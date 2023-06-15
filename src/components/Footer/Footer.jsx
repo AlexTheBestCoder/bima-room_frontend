@@ -16,7 +16,7 @@ export default function Footer() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:4000/api/contact", {
+      await axios.post("https://bima-room-backend-ujzj.onrender.com/api/contact", {
         firstName,
         lastName,
         email,

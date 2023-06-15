@@ -11,40 +11,44 @@ import nails_img_6 from "../../assets/ongles2.jpeg";
 import lips_booster_img from "../../assets/kit_lips_booster.jpg";
 import axios from "axios";
 import { MutatingDots } from "react-loader-spinner";
+const uuid = require("uuid");
 
 const Product = ({ product }) => {
-  const addToCart = async () => {
+  const addToCart = async (product) => {
     try {
-      const cartId = document.cookie.split("=")[1]; // Récupère l'identifiant du panier depuis les cookies
-  
-      const response = await axios.post(
-        'http://localhost:4000/api/cart/add',
-        {
-          cartId: cartId,
-          title: product.title,
-          price: product.price,
-          image: product.image,
-          category: product.category,
-        },
-        {
-          withCredentials: true, // Inclure les cookies dans la requête
-        }
-      );
-      console.log(response.data)
-  
-      // Reste du code
+      // Récupérer l'identifiant unique du panier depuis localStorage
+      let cartId = localStorage.getItem("cartId");
+
+      // Si aucun identifiant de panier n'est trouvé, générer un nouvel identifiant
+      if (!cartId) {
+        cartId = uuid.v4();
+        localStorage.setItem("cartId", cartId);
+      }
+
+      // Envoyer une requête POST pour ajouter le produit au panier
+      await axios.post("https://bima-room-backend-ujzj.onrender.com/api/cart", {
+        cartId: cartId, // Utiliser le cartId existant s'il est défini, sinon générer un nouvel identifiant
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        category: product.category,
+        quantity: 1,
+      });
+      console.log(cartId);
+      // Afficher un message de succès ou effectuer une autre action si nécessaire
+      console.log("Produit ajouté au panier avec succès !");
     } catch (error) {
-      console.error('Erreur lors de l\'ajout de l\'article au panier:', error);
+      // Gérer les erreurs en conséquence
+      console.error("Erreur lors de l'ajout au panier :", error);
     }
   };
-  
 
   return (
     <div className="product">
       <img src={product.image} alt={product.title} />
       <h4>{product.title}</h4>
       <p>{product.price} F CFA</p>
-      <button onClick={addToCart}>Ajouter au panier</button>
+      <button onClick={() => addToCart(product)}>Ajouter au panier</button>
     </div>
   );
 };
@@ -58,42 +62,7 @@ const ProductList = () => {
       image: nails_img_1,
       category: "press_on_nails",
     },
-    {
-      id: 2,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_2,
-      category: "press_on_nails",
-    },
-    {
-      id: 3,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_3,
-      category: "press_on_nails",
-    },
-    {
-      id: 4,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_4,
-      category: "press_on_nails",
-    },
-    {
-      id: 5,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_5,
-      category: "press_on_nails",
-    },
-    {
-      id: 6,
-      title: "Press On Nails XXL",
-      price: 8000,
-      image: nails_img_6,
-      category: "press_on_nails",
-    },
-    // ... other products
+    // ... other press on nails products
   ]);
 
   const [kit_lips_booster] = useState([

@@ -1,35 +1,57 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([{}]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const cartId = document.cookie.split("=")[1];
-        console.log(cartId) // Récupère l'identifiant du panier depuis les cookies
-        const response = await axios.get(`http://localhost:4000/api/cart?cartId=${cartId}`);
-        setCartItems(response.data);
-        console.log(response.data);
+        // Récupérer l'identifiant unique du panier depuis le localStorage
+        const cartId = localStorage.getItem("cartId");
+    
+        // Vérifier si l'identifiant du panier est disponible
+        if (!cartId) {
+          setIsLoading(false);
+          return;
+        }
+    
+        // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
+        const response = await axios.get(`https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`);
+        console.log(response.data.items)
+        // Mettre à jour les éléments du panier dans le state
+        setCartItems(response.data.items);
+        setIsLoading(false);
       } catch (error) {
-        console.error('Erreur lors de la récupération des produits du panier:', error);
+        console.error("Erreur lors de la récupération des éléments du panier :", error);
+        setIsLoading(false);
       }
-    };    
+    };
+    
 
     fetchCartItems();
   }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+ 
+
   return (
-    <div className="cart">
-      <h2>Panier</h2>
-      {cartItems.map((item) => (
-        <div key={item._id} className="cart-item">
-          <img src={item.image} alt={item.title} />
-          <h4>{item.title}</h4>
-          <p>{item.price} F CFA</p>
-        </div>
-      ))}
+    <div>
+      <h2>Mon Panier</h2>
+      <ul>
+        {cartItems.map((item) => (
+          <li key={item._id}>
+            <h4>{item.title}</h4>
+            <p>Prix : {item.price} F CFA</p>
+            <p>Quantité : {item.quantity}</p>
+            <img src={item.image} alt="" />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
