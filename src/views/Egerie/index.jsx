@@ -12,7 +12,7 @@ export default function Egerie() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1200);
   }, []);
 
   return (

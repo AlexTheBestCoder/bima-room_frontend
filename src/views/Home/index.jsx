@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import Slider from "react-slick";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { MutatingDots, Puff, Rings } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,7 +18,7 @@ export default function Home() {
 
   setTimeout(() => {
     setIsLoading(false);
-  }, 1500);
+  }, 1200);
   const products = [
     {
       name: "Press On Nails xl",
@@ -29,7 +29,7 @@ export default function Home() {
     },
 
     {
-      name: "KIT LIPS BOOSTER CREME",
+      name: "KIT LIPS BOOSTER",
       price: 10000,
       image: kit_lips_booster,
       isBestSeller: true,
@@ -63,7 +63,6 @@ export default function Home() {
       ) : (
         <div className="home-container">
           <Navbar />
-          {/* <Slider {...settings} className="slide-container"> */}
           <Carousel
             autoPlay={true}
             interval={3000}
@@ -75,22 +74,21 @@ export default function Home() {
           >
             <div className="slide-2">
               <p>
-                Une Manicure parfaite <br /> en un clin d'oeil <br /> avec nos{" "}
-                <span translate="no">press on nails</span>
-                <br /> tendance
+                Une Manicure parfaite en un clin d'oeil avec nos{" "}
+                <span translate="no">press on nails</span> tendance
               </p>
-              <Link to="/content1" className="content-link">
+              <Link to={"/boutique"} className="content-link">
                 ACHETER VOS <span translate="no">PRESS ON NAILS</span>
               </Link>
             </div>
             <div className="slide-3">
               <p>
-                Des levres irresistibles avec
-                <br /> le kit <span translate="no">LIPS BOOSTER</span> creme
-                <br /> pour sublimer votre sourire.
+                Des levres irresistibles avec le kit{" "}
+                <span translate="no">LIPS BOOSTER</span> pour sublimer votre
+                sourire.
               </p>
-              <Link to="/content2" className="content-link">
-                ACHETER VOS <span translate="no">LIPS BOOSTER</span> CREME
+              <Link to={"/boutique"} className="content-link">
+                ACHETER VOS <span translate="no">LIPS BOOSTER</span>
               </Link>
             </div>
           </Carousel>
@@ -111,12 +109,12 @@ export default function Home() {
           <div className="press-on-nails">
             <div className="box-content">
               <p>
-                Ongles parfaits / <br /> Main irrésistibles
+                Ongles parfaits / <br /> Mains irrésistibles
               </p>
               <p>
                 #Optez pour nos <span translate="no">press on nails</span>
               </p>
-              <Link>Acheter</Link>
+              <Link to={"/boutique"}>Acheter</Link>
             </div>
           </div>
           <br />
@@ -144,12 +142,12 @@ export default function Home() {
           <div className="lips-booster-creme">
             <div className="box-content">
               <p>
-                Lèvres captivante /<br /> Séduction absolue
+                Lèvres captivantes /<br /> Séduction absolue
               </p>
               <p>
-                #Choisissez nos <span translate="no">lips booster</span> crème
+                #Choisissez nos kit <span translate="no">lips booster</span>
               </p>
-              <Link>Acheter</Link>
+              <Link to={"/boutique"}>Acheter</Link>
             </div>
           </div>
           <Footer />

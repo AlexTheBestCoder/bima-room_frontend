@@ -17,7 +17,7 @@ const Register = () => {
 
   setTimeout(() => {
     setIsLoading(false);
-  }, 1500);
+  }, 1200);
 
   const initialValues = {
     name: "",

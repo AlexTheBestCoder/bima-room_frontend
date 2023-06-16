@@ -1,6 +1,4 @@
-.egerie-box-container {
-    
-}
+
 
 .egerie-box-container .header {
     height: 20vh;
@@ -104,9 +102,6 @@
         height: 100%;
         width: 100%;
     }
-    .img-top {
-        /* height: 100%; */
-    }
 }
 
 @media screen and (max-width: 550px) {
@@ -141,9 +136,6 @@
         object-position: top;
         bottom: 20%;
         height: 40%;
-    }
-    .img-top {
-        /* background-position: center; */
     }
     .egerie-box-container .main .box-container-left .main p {
         bottom: 15%;

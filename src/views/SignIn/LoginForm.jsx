@@ -50,7 +50,7 @@ const LoginForm = () => {
 
   setTimeout(() => {
     setIsLoading(false);
-  }, 1500);
+  }, 1200);
   return (
     <>
       {isLoading ? (

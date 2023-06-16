@@ -25,6 +25,7 @@
 .slide-1 p,
 .slide-2 p,
 .slide-3 p {
+    width: 50%;
     font-size: 45px;
     font-weight: 900;
     color: white;
@@ -82,7 +83,7 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 100vh;
 }
 
@@ -163,8 +164,7 @@
 .press-on-nails .box-content p {
     font-size: 3vh;
 }
-.press-on-nails .box-content span {
-}
+
 .press-on-nails .box-content a {
     text-transform: uppercase;
     font-size: 2.5vh;
@@ -248,12 +248,7 @@
         color: white;
         text-transform: uppercase;
     }
-    .slide-1 a,
-    .slide-2 a,
-    .slide-3 a {
-        
-
-    }
+  
 }
 
 @media screen and (max-width: 900px) {
@@ -267,12 +262,7 @@
         text-transform: uppercase;
     }
 
-    .slide-1 a,
-    .slide-2 a,
-    .slide-3 a {
-        
-
-    }
+  
 }
 
 @media screen and (max-width: 800px ) {

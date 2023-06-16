@@ -64,6 +64,7 @@ const Product = ({ product }) => {
         quantity: 1,
       });
       fetchCartItems();
+      setModalIsOpen(true);
       console.log(cartId);
       // Afficher un message de succès ou effectuer une autre action si nécessaire
       console.log("Produit ajouté au panier avec succès !");
@@ -73,6 +74,11 @@ const Product = ({ product }) => {
     }
   };
 
+  useEffect(() => {
+    fetchCartItems();
+  }, [cartItems]);
+
+  
   return (
     <>
       <div className="product">
@@ -92,18 +98,35 @@ const Product = ({ product }) => {
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         className={modalIsOpen ? "modal-container open" : "modal-container"}
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.752)",
+            backdropFilter: "blur(5px)",
+          },
+        }}
       >
+        <div className="modal-header">
+          <p>PANIER</p>
+          <div
+            style={{ width: "2rem", borderBottom: "3px solid gainsboro" }}
+          ></div>
+          <button onClick={() => setModalIsOpen(false)}>X</button>
+        </div>
         <ul>
           {cartItems.map((items) => (
             <li key={items.id}>
-              <img src={items.image} alt={items.title} style={{height: '100px'}}/>
+              <img
+                src={items.image}
+                alt={items.title}
+                style={{ height: "100px" }}
+              />
               <p>{items.title}</p>
             </li>
           ))}
         </ul>
-        <h2>Fenêtre modale</h2>
-        <p>Contenu de la modale...</p>
-        <button onClick={() => setModalIsOpen(false)}>Fermer</button>
+        <div className="modal-footer">
+          <button>VOIR LE PANIER</button>
+        </div>
       </ReactModal>
     </>
   );
@@ -118,13 +141,48 @@ const ProductList = () => {
       image: nails_img_1,
       category: "press_on_nails",
     },
+    {
+      id: 2,
+      title: "Press On Nails XL",
+      price: 8000,
+      image: nails_img_2,
+      category: "press_on_nails",
+    },
+    {
+      id: 3,
+      title: "Press On Nails XL",
+      price: 8000,
+      image: nails_img_3,
+      category: "press_on_nails",
+    },
+    {
+      id: 4,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_4,
+      category: "press_on_nails",
+    },
+    {
+      id: 5,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_5,
+      category: "press_on_nails",
+    },
+    {
+      id: 6,
+      title: "Press On Nails XXL",
+      price: 8000,
+      image: nails_img_6,
+      category: "press_on_nails",
+    },
     // ... other press on nails products
   ]);
 
   const [kit_lips_booster] = useState([
     {
       id: 1,
-      title: "Kit Lips Booster Creme",
+      title: "Kit Lips Booster",
       price: 10000,
       image: lips_booster_img,
       category: "kit_lips_booster",
@@ -138,7 +196,7 @@ const ProductList = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1200);
   }, []);
 
   const handleSearchChange = (event) => {
