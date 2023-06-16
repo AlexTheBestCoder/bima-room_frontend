@@ -43,9 +43,6 @@ const Product = ({ product }) => {
     }
   };
 
- 
-    
-
   const addToCart = async (product) => {
     try {
       // Récupérer l'identifiant unique du panier depuis localStorage
@@ -99,7 +96,7 @@ const Product = ({ product }) => {
         <ul>
           {cartItems.map((items) => (
             <li key={items.id}>
-              <img src={items.image} alt={items.title} />
+              <img src={items.image} alt={items.title} style={{height: '100px'}}/>
               <p>{items.title}</p>
             </li>
           ))}
