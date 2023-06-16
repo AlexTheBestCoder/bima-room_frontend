@@ -16,14 +16,17 @@ export default function Footer() {
     e.preventDefault();
 
     try {
-      await axios.post("https://bima-room-backend-ujzj.onrender.com/api/contact", {
-        firstName,
-        lastName,
-        email,
-        subject,
-        message,
-      });
-      alert("Email sent successfully!");
+      await axios.post(
+        "https://bima-room-backend-ujzj.onrender.com/api/contact",
+        {
+          firstName,
+          lastName,
+          email,
+          subject,
+          message,
+        }
+      );
+      alert("Email envoyez avec succès!");
       // Réinitialisez les champs du formulaire
       setFirstName("");
       setLastName("");
@@ -57,9 +60,12 @@ export default function Footer() {
                 Collaborations
               </p>
               <p>
-                Pour les collaborations en tant qu'égérie, veuillez me contacter
-                à : <br />
-                capricebeauty72@icloud.com
+                Pour les collaborations en tant qu'égérie de marque, publicité,
+                placement de produit, modèle clip, ambassadrice veuillez me
+                contacter : <br />
+                <br />
+                capricebeauty72@icloud.com <br />
+                +225 0747650257
               </p>
             </div>
           </div>

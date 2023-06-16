@@ -4,6 +4,7 @@
     align-items: center;
     padding-left: 1cm;
     padding-right: 1cm;
+    padding-bottom: 1cm
 }
 
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
@@ -28,6 +29,10 @@
 }
 
 .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     box-shadow: 5px 5px 10px gray;
     padding: 10px;
     /* text-align: center; */
@@ -42,6 +47,7 @@
 
 .product h4 {
     font-family: 'ZCOOL XiaoWei', sans-serif;
+    font-weight: bold;
     font-size: 20px;
     margin: 10px 0;
 }
@@ -70,6 +76,34 @@
     height: max-content;
 }
 
+.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px; /* Ajustez la largeur selon vos besoins */
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-name: slideIn;
+    z-index: 9999;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  .modal-container.open {
+    transform: translateX(0%);
+  }
+  
+
 @media screen and (max-width: 1500px) {
     
     .product-list {
@@ -97,18 +131,45 @@
     }
 }
 @media screen and (max-width: 628px) {
-    
+    .product h4 {
+        font-family: 'ZCOOL XiaoWei', sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
     .filters {
         width: max-content;
-        height: 7rem;
+        height: 6rem;
         flex-direction: column;
     }
 }
 
 /* Styles spécifiques aux écrans de petite taille */
 @media screen and (max-width: 500px) {
+    .product h4 {
+        font-family: 'ZCOOL XiaoWei', sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+}
+@media screen and (max-width: 450px) {
     .product-list {
-        grid-template-columns: 1fr;
-        grid-gap: 10vh;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 3vh;
+    }
+    .product h4 {
+        font-family: 'ZCOOL XiaoWei', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+}
+@media screen and (max-width: 300px) {
+  
+    .product h4 {
+        font-size: 15px;
+        font-weight: bold;
+        margin: 10px 0;
     }
 }

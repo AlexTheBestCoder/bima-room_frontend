@@ -11,9 +11,40 @@ import nails_img_6 from "../../assets/ongles2.jpeg";
 import lips_booster_img from "../../assets/kit_lips_booster.jpg";
 import axios from "axios";
 import { MutatingDots } from "react-loader-spinner";
+import ReactModal from "react-modal";
 const uuid = require("uuid");
 
 const Product = ({ product }) => {
+  const [cartItems, setCartItems] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        // Récupérer l'identifiant unique du panier depuis le localStorage
+        const cartId = localStorage.getItem("cartId");
+
+        // Vérifier si l'identifiant du panier est disponible
+        if (!cartId) {
+          return;
+        }
+
+        // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
+        const response = await axios.get(
+          `https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`
+        );
+        console.log(response.data.items);
+        // Mettre à jour les éléments du panier dans le state
+        setCartItems(response.data.items);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des éléments du panier :",
+          error
+        );
+      }
+    };
+
+    fetchCartItems();
+  }, [cartItems]);
   const addToCart = async (product) => {
     try {
       // Récupérer l'identifiant unique du panier depuis localStorage
@@ -34,6 +65,7 @@ const Product = ({ product }) => {
         category: product.category,
         quantity: 1,
       });
+      
       console.log(cartId);
       // Afficher un message de succès ou effectuer une autre action si nécessaire
       console.log("Produit ajouté au panier avec succès !");
@@ -44,12 +76,35 @@ const Product = ({ product }) => {
   };
 
   return (
-    <div className="product">
-      <img src={product.image} alt={product.title} />
-      <h4>{product.title}</h4>
-      <p>{product.price} F CFA</p>
-      <button onClick={() => addToCart(product)}>Ajouter au panier</button>
-    </div>
+    <>
+      <div className="product">
+        <img src={product.image} alt={product.title} />
+        <h4>{product.title}</h4>
+        <p>{product.price} F CFA</p>
+        <button
+          onClick={() => {
+            addToCart(product);
+            setModalIsOpen(true);
+          }}
+        >
+          Ajouter au panier
+        </button>
+      </div>
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        className={modalIsOpen ? "modal-container open" : "modal-container"}
+      >
+        <ul>
+         {cartItems.map((items) => (
+          <li>{items.image}</li>
+         ))}
+        </ul>
+        <h2>Fenêtre modale</h2>
+        <p>Contenu de la modale...</p>
+        <button onClick={() => setModalIsOpen(false)}>Fermer</button>
+      </ReactModal>
+    </>
   );
 };
 

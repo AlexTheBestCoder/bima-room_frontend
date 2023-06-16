@@ -1,7 +1,6 @@
 footer {
     border-top:  1px solid rgba(128, 128, 128, 0.331);
     height: 80vh;
-    margin-top: 5vh;
     padding-top: 10vh;
     padding-bottom: 10vh;
     padding-left: 10vw;
@@ -44,7 +43,7 @@ footer .footer-box-container {
 }
 
 .footer-box-container .box-container-left {
-    height: 80%;
+    height: 95%;
 }
 
 .footer-box-container .social-media-icons {
@@ -153,6 +152,9 @@ footer .footer-box-container {
     background-color: black;
     color: white;
 }
+.collaboration-info p:nth-child(2) {
+    width: 70%;
+}
 
 @media screen and (max-width: 1200px) {
     .footer-box-container .box-container {
@@ -163,9 +165,9 @@ footer .footer-box-container {
 
 @media screen and (max-width: 800px) {
     footer {
-        height: 120vh;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
+        height: 150vh;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
         padding-left: 10vw;
         padding-right: 10vw;
     }
@@ -184,6 +186,7 @@ footer .footer-box-container {
         align-items: center;
         /* height: 40%; */
     }
+   
     .collaboration-info {
         text-align: center;
         display: flex;
@@ -194,7 +197,7 @@ footer .footer-box-container {
         width: 70%;
     }
     .footer-box-container .box-container {
-        height: 30%;
+        height: 50%;
         width: 100%;
     }
 
@@ -203,8 +206,11 @@ footer .footer-box-container {
         align-items: center;
         justify-content: space-between;
     }
+    .footer-box-container .box-container-left {
+        height: 42%;
+    }
     .footer-box-container .box-container-right {
-        height: 65%;
+        height: 50%;
     }
     .footer-bottom-box {
         align-items: center;
@@ -218,5 +224,15 @@ footer .footer-box-container {
         justify-content: space-between;
         height: 80%;
         /* border: 1px solid black; */
+    }
+}
+@media screen and (max-width: 550px) {
+    .footer-height-box .social-media-icons {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .footer-height-box .social-media-icons {
+        width: 50%;
     }
 }
