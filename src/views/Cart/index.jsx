@@ -10,13 +10,11 @@ const Cart = () => {
       try {
         // Récupérer l'identifiant unique du panier depuis le localStorage
         const cartId = localStorage.getItem("cartId");
-    
         // Vérifier si l'identifiant du panier est disponible
         if (!cartId) {
           setIsLoading(false);
           return;
         }
-    
         // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
         const response = await axios.get(`https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`);
         console.log(response.data.items)

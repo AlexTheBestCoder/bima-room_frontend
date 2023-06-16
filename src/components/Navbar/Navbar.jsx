@@ -4,10 +4,41 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import btn_connexion from "../../assets/connexion.png";
 import btn_panier from "../../assets/panier.png";
+import axios from "axios";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const fetchCartItems = async () => {
+    try {
+      // Récupérer l'identifiant unique du panier depuis le localStorage
+      const cartId = localStorage.getItem("cartId");
+
+      // Vérifier si l'identifiant du panier est disponible
+      if (!cartId) {
+        return;
+      }
+
+      // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
+      const response = await axios.get(
+        `https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`
+      );
+      console.log(response.data.items);
+      // Mettre à jour les éléments du panier dans le state
+      setCartItems(response.data.items);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des éléments du panier :",
+        error
+      );
+    }
+  };
+
+  useEffect(() => {
+    fetchCartItems();
+  }, [cartItems]);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,6 +57,13 @@ export default function Navbar() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <nav className="flex items-center justify-between p-4 bg-white">
@@ -95,7 +133,12 @@ export default function Navbar() {
           </li> */}
         </>
         <li>
-          <Link className="text-yellow-600 hover:text-yellow-900" to={'/egerie'}>Egerie</Link>
+          <Link
+            className="text-yellow-600 hover:text-yellow-900"
+            to={"/egerie"}
+          >
+            Egerie
+          </Link>
         </li>
         <li>
           <Link className="text-yellow-600 hover:text-yellow-900">
@@ -103,7 +146,7 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link className="text-yellow-600 hover:text-yellow-900">Contact</Link>
+          <Link className="text-yellow-600 hover:text-yellow-900" onClick={scrollToBottom}>Contact</Link>
         </li>
         <br />
         {isSmallScreen && (
@@ -130,6 +173,7 @@ export default function Navbar() {
           <Link to={"/panier"}>
             <button>
               <img src={btn_panier} alt="btn_panier" />
+              <p className="cart-quantity">{cartItems.length}</p>
             </button>
           </Link>
         )}

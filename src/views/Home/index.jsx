@@ -63,6 +63,7 @@ export default function Home() {
       ) : (
         <div className="home-container">
           <Navbar />
+          <div className="title">ACCUEIL</div>
           <Carousel
             autoPlay={true}
             interval={3000}

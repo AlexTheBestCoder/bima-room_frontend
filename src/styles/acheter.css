@@ -18,7 +18,8 @@
     /* background-color: #d39932; */
     /* border: 1px solid bla    ck; */
     color: #d39932;
-    height: 15vh;
+    height: 20vh;
+    border-bottom: 1px solid gainsboro;
     width: 98.9vw;
 }
 
@@ -61,8 +62,12 @@
 
 .product button {
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    padding: 0.5rem;
+    height: 2.5rem;
+    padding: 0;
     width: 100%;
 }
 
@@ -98,15 +103,33 @@
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
     animation-name: slideIn;
-    
+
     z-index: 9999;
 }
+
 .modal-container.closing {
     transition: opacity 0.3s ease-out;
     opacity: 0;
+}
+
+.image-container {
+    overflow: hidden; /* Masquer les parties de l'image en dehors du conteneur */
+    width: 100px; /* Largeur fixe du conteneur */
+    height: 100px; /* Hauteur fixe du conteneur */
   }
   
-
+  .image-container img {
+    width: 100%; /* Ajuster la largeur de l'image au conteneur */
+    height: 100%; /* Ajuster la hauteur de l'image au conteneur */
+    object-fit: cover; /* Ajuster l'image pour couvrir le conteneur en conservant les proportions */
+    transition: transform 0.3s ease-in-out; /* Ajouter une transition fluide pour l'effet de zoom */
+  }
+  
+  .image-container img {
+    transform: scale(1.8); /* Appliquer un zoom de 1.2 (20% de plus) sur l'image au survol */
+    transform-origin: bottom; /* Définir l'origine de la transformation au centre de l'image */
+  }
+  
 @keyframes slideIn {
     from {
         transform: translateX(100%);
@@ -144,21 +167,69 @@
 
 .modal-footer {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 12%;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
 }
-
+.modal-footer .loader {
+    align-self: center;
+}
 .modal-footer button {
     background-color: black;
     letter-spacing: 0.2rem;
     color: white;
     padding: 0.5rem;
-    height: 100%;
+    height: 50%;
     width: 100%;
+}
+.modal-footer p {
+    font-size: 25px;
+    font-weight: bold;
+}
+.modal-cart-items {
+    overflow: scroll;
+    max-height: 70%;
+}
+
+.modal-cart-items li {
+    padding: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gainsboro;
+    font-weight: bold;
 }
 
 .modal-footer button:hover {
     background-color: rgb(48, 48, 48);
+}
+
+.modal-cart-items-container {
+    display: flex;
+    width: max-content;
+}
+
+.modal-cart-items-details {
+    font-size: 18px;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.modal-cart-items-quantity {
+    width: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+.modal-cart-items-button {
+    height: auto;
+    width: max-content;
+}
+.disable-scroll {
+    overflow: hidden;
 }
 
 @media screen and (max-width: 1500px) {
@@ -196,7 +267,7 @@
         font-weight: bold;
         margin: 10px 0;
     }
-    
+
 
     .filters {
         width: max-content;
@@ -204,16 +275,9 @@
         flex-direction: column;
     }
 }
-@media screen and (max-width: 600px) {
-    .modal-container {
-        overflow: hidden;
-        width: 100vw;
-    }
-    .disable-scroll {
-        overflow: hidden;
-      }
-      
-}
+
+@media screen and (max-width: 600px) {}
+
 /* Styles spécifiques aux écrans de petite taille */
 @media screen and (max-width: 500px) {
     .product h4 {
@@ -222,9 +286,15 @@
         font-weight: bold;
         margin: 10px 0;
     }
+
 }
 
 @media screen and (max-width: 450px) {
+    .modal-container {
+        padding: 1rem;
+        width: 100vw;
+    }
+
     .product-list {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 3vh;

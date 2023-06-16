@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 import img_form from "../../assets/registration-form-4.jpg";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import { MutatingDots, Puff, Rings } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const LoginForm = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/login",
+        "https://bima-room-backend-ujzj.onrender.com/api/login",
         {
           email,
           password,

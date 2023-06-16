@@ -41,7 +41,7 @@ const Register = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post("http://localhost:4000/api/register", {
+      const response = await axios.post("https://bima-room-backend-ujzj.onrender.com/api/register", {
         name: values.name,
         email: values.email,
         password: values.password,

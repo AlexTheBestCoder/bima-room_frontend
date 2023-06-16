@@ -9,25 +9,26 @@ import nails_img_4 from "../../assets/press_on_nails_4.jpg";
 import nails_img_5 from "../../assets/press_on_nails_5.jpg";
 import nails_img_6 from "../../assets/ongles2.jpeg";
 import lips_booster_img from "../../assets/kit_lips_booster.jpg";
-import btn_close from "../../assets/fermer.png"
+import btn_close from "../../assets/fermer.png";
+import btn_delete from "../../assets/supprimer.png";
 import axios from "axios";
-import { MutatingDots } from "react-loader-spinner";
+import { MutatingDots, ThreeDots } from "react-loader-spinner";
 import ReactModal from "react-modal";
 const uuid = require("uuid");
 
 const Product = ({ product }) => {
   const [cartItems, setCartItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  useEffect(() => {
-    if (modalIsOpen) {
-      document.body.classList.add("disable-scroll");
-    } else {
-      document.body.classList.remove("disable-scroll");
-    }
-  }, [modalIsOpen]);
-  
+  const [isAddingToCart, setIsAddingToCart] = useState(false); // Ajout de l'état isAddingToCart
+  // const [isLoading, setIsLoading] = useState(false);
+  const [isCartLoading, setIsCartLoading] = useState(false);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
   const fetchCartItems = async () => {
+    setIsLoading(true);
     try {
+      setIsCartLoading(true);
       // Récupérer l'identifiant unique du panier depuis le localStorage
       const cartId = localStorage.getItem("cartId");
 
@@ -43,16 +44,26 @@ const Product = ({ product }) => {
       console.log(response.data.items);
       // Mettre à jour les éléments du panier dans le state
       setCartItems(response.data.items);
+      const totalSum = response.data.items.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+      setTotalAmount(totalSum);
     } catch (error) {
       console.error(
         "Erreur lors de la récupération des éléments du panier :",
         error
       );
+    } finally {
+      setIsCartLoading(false);
+      setIsLoading(false); // Définir isLoading à false une fois les données récupérées ou en cas d'erreur
     }
   };
 
   const addToCart = async (product) => {
     try {
+      setIsAddingToCart(true);
+      setIsCartLoading(true);
       // Récupérer l'identifiant unique du panier depuis localStorage
       let cartId = localStorage.getItem("cartId");
 
@@ -72,21 +83,47 @@ const Product = ({ product }) => {
         quantity: 1,
       });
       fetchCartItems();
-      setModalIsOpen(true);
       console.log(cartId);
       // Afficher un message de succès ou effectuer une autre action si nécessaire
       console.log("Produit ajouté au panier avec succès !");
     } catch (error) {
       // Gérer les erreurs en conséquence
       console.error("Erreur lors de l'ajout au panier :", error);
+    } finally {
+      setModalIsOpen(true);
+      setIsAddingToCart(false);
+      setIsCartLoading(false);
+    }
+  };
+
+  const handleDeleteItem = async (itemId) => {
+    try {
+      // setIsCartLoading(false);
+      // Récupérer l'identifiant unique du panier depuis localStorage
+      const cartId = localStorage.getItem("cartId");
+
+      // Envoyer une requête DELETE pour supprimer l'élément du panier
+      await axios.delete(`https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}/${itemId}`);
+      fetchCartItems();
+
+      // Mettre à jour les éléments du panier dans le state ou effectuer toute autre action nécessaire
+      // ...
+    } catch (error) {
+      // Gérer les erreurs en conséquence
+      console.error("Erreur lors de la suppression de l'élément :", error);
+    } finally {
+      setIsCartLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchCartItems();
-  }, [cartItems]);
+    if (modalIsOpen) {
+      document.body.classList.add("disable-scroll");
+    } else {
+      document.body.classList.remove("disable-scroll");
+    }
+  }, [modalIsOpen]);
 
-  
   return (
     <>
       <div className="product">
@@ -96,10 +133,23 @@ const Product = ({ product }) => {
         <button
           onClick={() => {
             addToCart(product);
-            setModalIsOpen(true);
           }}
+          disabled={isAddingToCart || isCartLoading}
         >
-          Ajouter au panier
+          {isAddingToCart || isCartLoading ? (
+            <ThreeDots
+              height="60"
+              width="60"
+              radius="9"
+              color="white"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              wrapperClassName=""
+              visible={true}
+            />
+          ) : (
+            "Ajouter au panier"
+          )}
         </button>
       </div>
       <ReactModal
@@ -122,19 +172,61 @@ const Product = ({ product }) => {
             <img src={btn_close} alt="btn_close" />
           </button>
         </div>
-        <ul>
+        <ul className="modal-cart-items">
           {cartItems.map((items) => (
-            <li key={items.id}>
-              <img
-                src={items.image}
-                alt={items.title}
-                style={{ height: "100px" }}
-              />
-              <p>{items.title}</p>
+            <li key={items._id}>
+              <div className="modal-cart-items-container">
+                <div className="image-container ">
+                  <img
+                    src={items.image}
+                    alt={items.title}
+                    className=""
+                    
+                  />
+                </div>
+                <div className="modal-cart-items-details">
+                  <p>{items.title}</p>
+                  <div className="modal-cart-items-quantity">
+                    <p>{items.quantity}</p>x
+                    <p style={{ letterSpacing: "0.1rem" }}>{items.price}F</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="modal-cart-items-button"
+                onClick={() => handleDeleteItem(items._id)}
+              >
+                <img src={btn_delete} alt="btn_delete" />
+              </button>
             </li>
           ))}
         </ul>
+
         <div className="modal-footer">
+          {isLoading ? (
+            <div className="loader">
+              <ThreeDots
+                height="60"
+                width="60"
+                radius="9"
+                color="black"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                visible={true}
+              />
+            </div>
+          ) : (
+            <p
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              Sous-total :
+              <p style={{ letterSpacing: "0.1rem" }}>{totalAmount}F</p>
+            </p>
+          )}
           <button>VOIR LE PANIER</button>
         </div>
       </ReactModal>
@@ -255,7 +347,7 @@ const ProductList = () => {
         <>
           <Navbar />
           <div className="buy-container">
-            <div className="title">ACHETER</div>
+            <div className="title">BOUTIQUE</div>
             <br />
             <div className="filters">
               <input
