@@ -17,6 +17,7 @@ const uuid = require("uuid");
 const Product = ({ product }) => {
   const [cartItems, setCartItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const fetchCartItems = async () => {
     try {
       // Récupérer l'identifiant unique du panier depuis le localStorage
@@ -42,9 +43,9 @@ const Product = ({ product }) => {
     }
   };
 
-  useEffect(() => {
-    fetchCartItems();
-  }, []);
+ 
+    
+
   const addToCart = async (product) => {
     try {
       // Récupérer l'identifiant unique du panier depuis localStorage
@@ -65,7 +66,7 @@ const Product = ({ product }) => {
         category: product.category,
         quantity: 1,
       });
-
+      fetchCartItems();
       console.log(cartId);
       // Afficher un message de succès ou effectuer une autre action si nécessaire
       console.log("Produit ajouté au panier avec succès !");
