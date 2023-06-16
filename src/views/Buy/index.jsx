@@ -9,6 +9,7 @@ import nails_img_4 from "../../assets/press_on_nails_4.jpg";
 import nails_img_5 from "../../assets/press_on_nails_5.jpg";
 import nails_img_6 from "../../assets/ongles2.jpeg";
 import lips_booster_img from "../../assets/kit_lips_booster.jpg";
+import btn_close from "../../assets/fermer.png"
 import axios from "axios";
 import { MutatingDots } from "react-loader-spinner";
 import ReactModal from "react-modal";
@@ -17,7 +18,14 @@ const uuid = require("uuid");
 const Product = ({ product }) => {
   const [cartItems, setCartItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.classList.add("disable-scroll");
+    } else {
+      document.body.classList.remove("disable-scroll");
+    }
+  }, [modalIsOpen]);
+  
   const fetchCartItems = async () => {
     try {
       // Récupérer l'identifiant unique du panier depuis le localStorage
@@ -110,7 +118,9 @@ const Product = ({ product }) => {
           <div
             style={{ width: "2rem", borderBottom: "3px solid gainsboro" }}
           ></div>
-          <button onClick={() => setModalIsOpen(false)}>X</button>
+          <button onClick={() => setModalIsOpen(false)}>
+            <img src={btn_close} alt="btn_close" />
+          </button>
         </div>
         <ul>
           {cartItems.map((items) => (

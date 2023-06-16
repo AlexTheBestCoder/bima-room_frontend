@@ -89,6 +89,7 @@
     top: 0;
     right: 0;
     bottom: 0;
+    height: 100vhh;
     width: 400px;
     /* Ajustez la largeur selon vos besoins */
     background-color: #ffffff;
@@ -205,8 +206,13 @@
 }
 @media screen and (max-width: 600px) {
     .modal-container {
+        overflow: hidden;
         width: 100vw;
     }
+    .disable-scroll {
+        overflow: hidden;
+      }
+      
 }
 /* Styles spécifiques aux écrans de petite taille */
 @media screen and (max-width: 500px) {
