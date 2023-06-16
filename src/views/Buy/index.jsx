@@ -17,34 +17,34 @@ const uuid = require("uuid");
 const Product = ({ product }) => {
   const [cartItems, setCartItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  useEffect(() => {
-    const fetchCartItems = async () => {
-      try {
-        // Récupérer l'identifiant unique du panier depuis le localStorage
-        const cartId = localStorage.getItem("cartId");
+  const fetchCartItems = async () => {
+    try {
+      // Récupérer l'identifiant unique du panier depuis le localStorage
+      const cartId = localStorage.getItem("cartId");
 
-        // Vérifier si l'identifiant du panier est disponible
-        if (!cartId) {
-          return;
-        }
-
-        // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
-        const response = await axios.get(
-          `https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`
-        );
-        console.log(response.data.items);
-        // Mettre à jour les éléments du panier dans le state
-        setCartItems(response.data.items);
-      } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des éléments du panier :",
-          error
-        );
+      // Vérifier si l'identifiant du panier est disponible
+      if (!cartId) {
+        return;
       }
-    };
 
+      // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
+      const response = await axios.get(
+        `https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`
+      );
+      console.log(response.data.items);
+      // Mettre à jour les éléments du panier dans le state
+      setCartItems(response.data.items);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des éléments du panier :",
+        error
+      );
+    }
+  };
+
+  useEffect(() => {
     fetchCartItems();
-  }, [cartItems]);
+  }, []);
   const addToCart = async (product) => {
     try {
       // Récupérer l'identifiant unique du panier depuis localStorage
@@ -65,7 +65,7 @@ const Product = ({ product }) => {
         category: product.category,
         quantity: 1,
       });
-      
+
       console.log(cartId);
       // Afficher un message de succès ou effectuer une autre action si nécessaire
       console.log("Produit ajouté au panier avec succès !");
@@ -96,9 +96,12 @@ const Product = ({ product }) => {
         className={modalIsOpen ? "modal-container open" : "modal-container"}
       >
         <ul>
-         {cartItems.map((items) => (
-          <li>{items.image}</li>
-         ))}
+          {cartItems.map((items) => (
+            <li key={items.id}>
+              <img src={items.image} alt={items.title} />
+              <p>{items.title}</p>
+            </li>
+          ))}
         </ul>
         <h2>Fenêtre modale</h2>
         <p>Contenu de la modale...</p>
