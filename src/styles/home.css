@@ -62,16 +62,6 @@
     background-image: url('../assets/slide-bg-3.jpg');
 }
 
-.guaranteed-effect {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-size: cover;
-    background-image: url('../assets/cils-bg.webp');
-    height: 58.8vh;
-    /* border: 1px solid black; */
-}
-
 .box-content {
     background-color: #31353df1;
     height: 40vh;
