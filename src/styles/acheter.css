@@ -113,23 +113,32 @@
 }
 
 .image-container {
-    overflow: hidden; /* Masquer les parties de l'image en dehors du conteneur */
-    width: 100px; /* Largeur fixe du conteneur */
-    height: 100px; /* Hauteur fixe du conteneur */
-  }
-  
-  .image-container img {
-    width: 100%; /* Ajuster la largeur de l'image au conteneur */
-    height: 100%; /* Ajuster la hauteur de l'image au conteneur */
-    object-fit: cover; /* Ajuster l'image pour couvrir le conteneur en conservant les proportions */
-    transition: transform 0.3s ease-in-out; /* Ajouter une transition fluide pour l'effet de zoom */
-  }
-  
-  .image-container img {
-    transform: scale(1.8); /* Appliquer un zoom de 1.2 (20% de plus) sur l'image au survol */
-    transform-origin: bottom; /* Définir l'origine de la transformation au centre de l'image */
-  }
-  
+    overflow: hidden;
+    /* Masquer les parties de l'image en dehors du conteneur */
+    width: 90px;
+    /* Largeur fixe du conteneur */
+    height: 90px;
+    /* Hauteur fixe du conteneur */
+}
+
+.image-container img {
+    width: 100%;
+    /* Ajuster la largeur de l'image au conteneur */
+    height: 100%;
+    /* Ajuster la hauteur de l'image au conteneur */
+    object-fit: cover;
+    /* Ajuster l'image pour couvrir le conteneur en conservant les proportions */
+    transition: transform 0.3s ease-in-out;
+    /* Ajouter une transition fluide pour l'effet de zoom */
+}
+
+.image-container img {
+    transform: scale(1.8);
+    /* Appliquer un zoom de 1.2 (20% de plus) sur l'image au survol */
+    transform-origin: bottom;
+    /* Définir l'origine de la transformation au centre de l'image */
+}
+
 @keyframes slideIn {
     from {
         transform: translateX(100%);
@@ -172,9 +181,11 @@
     justify-content: space-between;
     /* align-items: center; */
 }
+
 .modal-footer .loader {
     align-self: center;
 }
+
 .modal-footer button {
     background-color: black;
     letter-spacing: 0.2rem;
@@ -183,15 +194,36 @@
     height: 50%;
     width: 100%;
 }
+
 .modal-footer p {
     font-size: 25px;
     font-weight: bold;
 }
+
 .modal-cart-items {
-    overflow: auto;
+    overflow: scroll;
     max-height: 70%;
-    overflow-x: hidden;
     scrollbar-width: thin;
+    /* Supprime les flèches indicatrices */
+    scrollbar-color: transparent transparent;
+    /* Couleur transparente pour la barre de défilement */
+}
+
+.modal-cart-items::-webkit-scrollbar {
+    width: 8px;
+    /* Largeur de la barre de défilement */
+}
+
+.modal-cart-items::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Couleur de fond de la barre de défilement */
+}
+
+.modal-cart-items::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Couleur de la poignée de la barre de défilement */
+    border-radius: 4px;
+    /* Forme arrondie de la poignée de la barre de défilement */
 }
 
 .modal-cart-items li {
@@ -215,21 +247,25 @@
 
 .modal-cart-items-details {
     font-size: 18px;
-    margin-left: 5vw;
+    margin-left: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 .modal-cart-items-quantity {
+    font-weight: 300;
+    font-size: 16px;
     width: 7rem;
     display: flex;
     justify-content: space-between;
 }
+
 .modal-cart-items-button {
     height: auto;
     width: max-content;
 }
+
 .disable-scroll {
     overflow: hidden;
 }
