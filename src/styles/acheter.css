@@ -188,8 +188,10 @@
     font-weight: bold;
 }
 .modal-cart-items {
-    overflow: scroll;
+    overflow: auto;
     max-height: 70%;
+    overflow-x: hidden;
+    scrollbar-width: thin;
 }
 
 .modal-cart-items li {
