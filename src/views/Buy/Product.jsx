@@ -4,9 +4,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {ThreeDots } from "react-loader-spinner";
 import ReactModal from "react-modal";
+import { useQuery } from "react-query";
 const uuid = require("uuid");
 
 export default function Product ({ product }) {
+
     const [cartItems, setCartItems] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [isAddingToCart, setIsAddingToCart] = useState(false); // Ajout de l'état isAddingToCart
@@ -26,14 +28,12 @@ export default function Product ({ product }) {
         if (!cartId) {
           return;
         }
-  
         // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
         const response = await axios.get(
           `https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`
         );
         console.log(response.data.items);
         // Mettre à jour les éléments du panier dans le state
-        setCartItems(response.data.items);
         const totalSum = response.data.items.reduce(
           (sum, item) => sum + item.price * item.quantity,
           0
@@ -49,7 +49,17 @@ export default function Product ({ product }) {
         setIsLoading(false); // Définir isLoading à false une fois les données récupérées ou en cas d'erreur
       }
     };
-  
+
+    const { data: cartItemsData } = useQuery('cartItems', fetchCartItems, {
+      refetchInterval: 1000,
+    });
+    
+    useEffect(() => {
+      if (cartItemsData) {
+        setCartItems(cartItemsData);
+      }
+    }, [cartItems, cartItemsData]);
+
     const addToCart = async (product) => {
       try {
         setIsAddingToCart(true);

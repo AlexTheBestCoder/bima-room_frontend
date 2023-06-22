@@ -28,7 +28,7 @@ export default function Navbar() {
   };
   
   const { data: cartItemsData, isLoading, error } = useQuery('cartItems', fetchCartItems, {
-    refetchInterval: 3000,
+    refetchInterval: 1000,
   });
   
   useEffect(() => {
