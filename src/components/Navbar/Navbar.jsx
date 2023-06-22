@@ -27,13 +27,15 @@ export default function Navbar() {
     return response.data.items;
   };
   
-  const { data: cartItemsData, isLoading, error } = useQuery('cartItems', fetchCartItems);
+  const { data: cartItemsData, isLoading, error } = useQuery('cartItems', fetchCartItems, {
+    refetchInterval: 3000,
+  });
   
   useEffect(() => {
     if (cartItemsData) {
       setCartItems(cartItemsData);
     }
-  }, [cartItemsData]);
+  }, [cartItems, cartItemsData]);
   
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
