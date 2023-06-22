@@ -21,7 +21,7 @@ export default function Navbar() {
     }
   
     const response = await axios.get(
-      `http:localhost:4000/api/cart/${cartId}`
+      `https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`
     );
   
     return response.data.items;
