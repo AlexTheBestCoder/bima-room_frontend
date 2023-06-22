@@ -264,6 +264,7 @@
 
 .modal-cart-items-button {
     height: auto;
+    margin-left: 1vw;
     width: max-content;
 }
 
