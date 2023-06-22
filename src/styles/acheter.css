@@ -210,6 +210,7 @@
 }
 
 .modal-cart-items::-webkit-scrollbar {
+    margin-left: 1vh;
     width: 8px;
     /* Largeur de la barre de défilement */
 }
@@ -247,7 +248,7 @@
 
 .modal-cart-items-details {
     font-size: 18px;
-    margin-left: 2vw;
+    margin-left: 1vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
