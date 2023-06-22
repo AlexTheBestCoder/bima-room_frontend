@@ -4,42 +4,37 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import btn_connexion from "../../assets/connexion.png";
 import btn_panier from "../../assets/panier.png";
+import { useQuery } from 'react-query';
 import axios from "axios";
 
 export default function Navbar() {
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   const fetchCartItems = async () => {
-    try {
-      // Récupérer l'identifiant unique du panier depuis le localStorage
-      const cartId = localStorage.getItem("cartId");
-
-      // Vérifier si l'identifiant du panier est disponible
-      if (!cartId) {
-        return;
-      }
-
-      // Envoyer une requête GET pour récupérer les éléments du panier en utilisant les paramètres
-      const response = await axios.get(
-        `https://bima-room-backend-ujzj.onrender.com/api/cart/${cartId}`
-      );
-      console.log(response.data.items);
-      // Mettre à jour les éléments du panier dans le state
-      setCartItems(response.data.items);
-    } catch (error) {
-      console.error(
-        "Erreur lors de la récupération des éléments du panier :",
-        error
-      );
+    const cartId = localStorage.getItem("cartId");
+  
+    if (!cartId) {
+      return;
     }
+  
+    const response = await axios.get(
+      `http:localhost:4000/api/cart/${cartId}`
+    );
+  
+    return response.data.items;
   };
-
+  
+  const { data: cartItemsData, isLoading, error } = useQuery('cartItems', fetchCartItems);
+  
   useEffect(() => {
-    fetchCartItems();
-  }, [cartItems]);
-
+    if (cartItemsData) {
+      setCartItems(cartItemsData);
+    }
+  }, [cartItemsData]);
+  
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
